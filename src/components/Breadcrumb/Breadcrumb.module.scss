@@ -1,0 +1,15 @@
+@use '../../styles/_variables.scss';
+
+.breadcrumb {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  height: 50px;
+  max-width: variables.$max-width;
+  margin: 0 auto;
+  color: variables.$light-gray;
+  font-weight: 300;
+  font-stretch: ultra-expanded;
+}

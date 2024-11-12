@@ -1,14 +1,14 @@
-// colors
-$yellow: #FFE600;
-$black: #333333;
-$grey: #666666;
-$light-grey: #999999;
-$white: #FFFFFF;
-$blue: #3483FA;
-$blue-hover: #2968CC;
-$max-width: 979px;
+// ./_variables.scss
+@use './_variables.scss';
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: $white;
+  background-color: variables.$white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
 }

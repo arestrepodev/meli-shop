@@ -1,0 +1,58 @@
+@use '../../styles/variables.scss';
+
+.itemLink {
+  text-decoration: none;
+}
+
+.item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 3fr 1fr;
+  flex: 1;
+  gap: 16px;
+  border-bottom: 2px solid variables.$white;
+  padding: 16px;
+  background: variables.$white;
+}
+
+.itemImage {
+  width: 180px;
+  height: 180px;
+  object-fit: fill;
+  border-radius: 4px;
+  background-color: variables.$white;
+}
+
+.itemTitleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+  color: variables.$black;
+}
+
+.itemPrice {
+  font-size: 18px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.itemTitle {
+  font-size: 14px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.itemConditionContainer {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding-top: 34px;
+  font-size: 12px;
+  color: variables.$gray;
+}
+

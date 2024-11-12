@@ -1,11 +1,17 @@
 import './styles/main.module.scss';
+import { FC } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Items from './pages/Items';
+import Item from './pages/Item';
+import Home from './pages/Home';
 
-function App() {
-
+const App: FC = () => {
   return (
-    <>
-     Hola desde meli shop
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/items" element={<Items />} />
+      <Route path="/items/:id" element={<Item />} />
+    </Routes>
   )
 }
 

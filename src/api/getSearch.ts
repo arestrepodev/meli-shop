@@ -1,13 +1,19 @@
-import { mappedDataSearch } from '../utils';
+import {formatSearchQuery, mappedDataSearch } from '../utils';
 
-export async function searchItems(query: string, author: { name: string, lastname: string }) {
+
+export const getSearch = async (query: string, author: { name: string, lastname: string }) => {
+  const formattedQuery = formatSearchQuery(query);
+  if (!formattedQuery) return null;
+
   try {
-    const response = await fetch(`/api/sites/MLA/search?q=${query}`);
+    const response = await fetch(`/api/sites/MLA/search?q=${formattedQuery}`);
     const data = await response.json();
-    const AUTHOR = { name: author.name, lastname: author.lastname };
-    return mappedDataSearch(data.results, AUTHOR);
+    const { results } = data;
+    const items = results.slice(0, 4);
+    return mappedDataSearch(items, author);
   } catch (error) {
-    console.error('Error fetching search items:', error);
-    return { error: 'Error fetching search items' };
+    console.error('Error fetching data', error);
+    return null;
   }
-}
+};
+

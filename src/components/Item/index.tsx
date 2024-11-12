@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ItemProps } from '../../models/item';
-import styles from './item.module.css';
+import styles from './Item.module.scss';
 import { FC } from 'react';
 
 

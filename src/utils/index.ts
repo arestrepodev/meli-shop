@@ -1,3 +1,5 @@
+import { DataDetails, DataSearch, ItemProps } from '../models/item';
+
 const AUTHOR = { name: "Arnold", lastname: "Restrepo" } as const;
 const formatSearchQuery = (query: string): string => {
   const trimmedQuery = query.trim();
@@ -15,7 +17,7 @@ export const formatPrice = (amount: number, currency: string) => {
   }).format(amount);
 };
 
-export const mappedDataSearch = (results: any, author: { name: string, lastname: string }) => {
+export const mappedDataSearch = (results: any, author: { name: string, lastname: string }) : DataSearch => {
   return {
     author: { ...author },
     items: results.map((item: any) => ({
@@ -30,11 +32,13 @@ export const mappedDataSearch = (results: any, author: { name: string, lastname:
       picture: item.thumbnail,
       condition: item.condition,
       free_shipping: item.shipping && item.shipping.free_shipping,
+      categoryId: item.category_id,
     })),
   };
 };
-
-export const mappedDataDetails = (data: any, author: { name: string, lastname: string }) => { 
+  
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const mappedDataDetails = (data: any, author: { name: string, lastname: string }): DataDetails => { 
   return {
     author: {
       name: author?.name,
@@ -52,6 +56,15 @@ export const mappedDataDetails = (data: any, author: { name: string, lastname: s
       picture: data?.pictures[0]?.secure_url,
       condition: data?.condition,
       free_shipping: data?.shipping?.free_shipping,
+      categoryId: data?.category_id,
     },
+  };
+};
+
+export const mapCategory = (category: any) => {
+  return {
+    id: category.id,
+    name: category.name,
+    pathRoot: category.path_from_root,
   };
 };

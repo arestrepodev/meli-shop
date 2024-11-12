@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './Error.module.scss';
 
 type ErrorProps = {
-  message: string | undefined;
+  message: string | undefined | null;
 };
 
 const Error: FC<ErrorProps> = ({ message }) => {

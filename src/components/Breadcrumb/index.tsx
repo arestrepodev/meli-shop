@@ -10,13 +10,17 @@ const Breadcrumb: FC<BreadcrumbProps> = ({ id }) => {
   const category = useCategory(id || '');
 
   return <div className={styles.breadcrumb}>
-    {/* TODO: Add breadcrumb logic as a improvement */}
     {category && category?.pathRoot.map((item, index: number) => {
       return (
-        <span key={item.id} className={styles.breadcrumbItem}>
+        <p key={item.id} className={styles.breadcrumbItem}>
+          <span>
           {index > 0 && ' > '}
-          {item.name}
-        </span>
+          </span>
+          <span>
+            {item.name}
+          </span>
+        </p>
+        
       );
     })}
   </div>;;

@@ -12,9 +12,30 @@
   color: variables.$light-gray;
   font-weight: 300;
   font-stretch: ultra-expanded;
+  & p:last-child {
+    & span:last-child {
+      font-weight: 500;
+    }
+  }
 }
 
 .breadcrumbItem {
   font-weight: 300;
   font-stretch: ultra-expanded;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+
+@media (max-width: variables.$tablet) {
+  .breadcrumb {
+    overflow-x: auto;
+  }
+  .breadcrumbItem {
+    flex-grow: 1;
+  }
 }

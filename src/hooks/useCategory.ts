@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import getCategory from '../api/getCategory';
-import { mapCategory } from '../utils';
 import { Category } from '../models/category';
 
 
 const useCategory = (id: string) => {
-  const [category, setCategory] = useState<Category | null>(null);
+  const [category, setCategory] = useState<Category>();
 
   useEffect(() => {
     const fetchCategory = async () => {
-      const category = await getCategory(id);
-      const mappedCategory = mapCategory(category);
-      setCategory(mappedCategory);
+      const category: Category = await getCategory(id);
+      setCategory(category);
     };
     fetchCategory();
   }, [id]);

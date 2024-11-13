@@ -20,7 +20,6 @@ const Breadcrumb: FC<BreadcrumbProps> = ({ id }) => {
             {item.name}
           </span>
         </p>
-        
       );
     })}
   </div>;;

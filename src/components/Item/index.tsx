@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ItemProps } from '../../models/item';
 import styles from './Item.module.scss';
 import { FC } from 'react';
@@ -6,8 +6,19 @@ import { FC } from 'react';
 
 export const Item: FC<ItemProps> = (props) => {
   const { id, title, price, picture, condition, free_shipping } = props;
+  const navigate = useNavigate();
+
+  const handleTransition = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    if ('startViewTransition' in document) {
+      document.startViewTransition(() => navigate(`/items/${id}`));
+    } else {
+      navigate(`/items/${id}`);
+    }
+  };
+
   return (
-    <Link to={`/items/${id}`} id={id} className={styles.itemLink}>
+    <a href={`/items/${id}`} id={id} className={styles.itemLink} onClick={handleTransition}>
     <article id={id} className={styles.item}>
       <img src={picture} alt={title} width={180} height={180} className={styles.itemImage}/>
       <div className={styles.itemTitleContainer}>
@@ -21,7 +32,7 @@ export const Item: FC<ItemProps> = (props) => {
         <p>{condition}</p>
       </div>
       </article>
-    </Link>
+    </a>
   )
 }
 

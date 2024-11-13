@@ -1,50 +1,131 @@
-# React + TypeScript + Vite
+# Mercado Libre Arnold Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una prueba técnica que implementa una versión simplificada de la búsqueda de productos de Mercado Libre, utilizando Next.js 15 con App Router para el frontend y Express para el servidor API.
 
-Currently, two official plugins are available:
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/b0bffa2d-ccbd-4cb8-8555-cd77fdc79304">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🛠 Tecnologías Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- TypeScript
+- SASS
+- Jest & React Testing Library
+- Node.js
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Instalación y Ejecución
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/arestrepodev/meli-shop.git
+cd meli-shop
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. **Instalar dependencias**
+```bash
+npm install
 ```
+
+3. **Ejecutar en desarrollo**
+
+Necesitarás ejecutar tanto el servidor como el cliente:
+
+Terminal 1 (Cliente):
+```bash
+npm run dev
+```
+
+## 📜 Scripts Disponibles
+
+- `npm run dev`: Inicia el servidor de desarrollo de Next.js
+- `npm run build`: Construye la aplicación para producción
+- `npm run lint`: Ejecuta el linter
+- `npm test`: Ejecuta los tests
+- `npm run test:watch`: Ejecuta los tests en modo watch
+
+## 🤔 Decisiones Técnicas
+
+1. **Estados del Cliente**
+   - Se implementaron estados para mejorar la experiencia de usuario:
+     - Loading: Durante la carga de datos
+     - Error: Para manejo de errores
+     - Empty: Cuando no hay productos
+
+2. **Modificación de la API**
+  - Se configuró el proxy server de Vite para manejar las peticiones a la API, optimizando el flujo de desarrollo y evitando la necesidad de un servidor separado como Express.
+
+3. **Testing**
+   Se implementaron tests para componentes críticos:
+   - Hook de fetching de items
+   - Componente de búsqueda
+   - Página de detalle de producto
+   - Página principal
+
+4. **Estilos**
+   - Se opt
+
+5. **Author Signature**
+   - Se implementó la firma del autor en el manejo de datos entre la API y el frontend según lo requerido
+   - Se agregó nombre y apellido en el campo author en las respuestas JSON
+
+## 💡 Mejoras Pendientes (Enhancements)
+
+1. **Categorías**
+   - Implementación del filtrado por categorías
+   - Mejora del breadcrumb basado en la categoría con más resultados
+   - No se implementó por restricciones de tiempo pero está contemplado en la arquitectura
+
+2. **Imágenes**
+   - Se utilizaron las imágenes de 90x90 proporcionadas por la API
+   - Como mejora se podría implementar la búsqueda de imágenes en tamaños más apropiados
+
+## 🗂 Estructura del Proyecto
+
+```
+/
+├── components/       # Componentes React reutilizables
+├── app/              # Páginas de Next.js
+├── server/           # Servidor Express
+├── models/           # TypeScript Models
+├── public/           # Archivos estáticos
+├── styles/           # CSS Modules y estilos globales
+├── __tests__/        # Tests            
+├── utils             # Funciones utilitarios
+└── hooks/            # Custom hooks
+```
+
+## 🧪 Testing
+
+El proyecto incluye tests unitarios y de integración para los componentes principales. Para ejecutar los tests:
+
+```bash
+# Ejecutar todos los tests
+npm test
+
+# Ejecutar tests en modo watch
+npm run test:watch
+```
+
+## 🔍 Funcionalidades Principales
+
+- Búsqueda de productos
+- Visualización de resultados
+- Detalle de producto
+- Manejo de estados de carga y error
+- API servidor para gestión de datos
+- Firma de autor en respuestas JSON
+
+## 📝 Notas Adicionales
+
+- El proyecto sigue las mejores prácticas de Next.js y React
+- Se implementó TypeScript para mayor seguridad de tipos
+- Se utilizó un enfoque modular para facilitar el mantenimiento
+- Los tests cubren los componentes críticos de la aplicación
+- El breadcrumb queda pendiente como mejora
+
+> [!IMPORTANT]
+> 📱 Redes Sociales
+
+- [LinkedIn](https://www.linkedin.com/in/arestrepodev/)
+- [GitHub](https://github.com/arestrepodev)
+- [Portfolio](https://arnoldrestrepo.dev)

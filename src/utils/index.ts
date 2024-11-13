@@ -1,4 +1,4 @@
-import { DataDetails, DataSearch, ItemProps } from '../models/item';
+import { DataDetails, DataSearch } from '../models/item';
 
 const AUTHOR = { name: "Arnold", lastname: "Restrepo" } as const;
 const formatSearchQuery = (query: string): string => {

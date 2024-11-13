@@ -3,11 +3,7 @@ import { DataDetails } from '../models/item';
 import { AUTHOR, mappedDataDetails } from '../utils';
 
 export async function getItemDetails(id: string | undefined | null): Promise<DataDetails | ErrorDetails> {
-  try {
-    if (!id) {
-      throw new Error("Invalid ID");
-    }
-    
+  try { 
     const response = await fetch(`/api/items/${id}`);
     const data = await response.json();
     const item = mappedDataDetails(data, AUTHOR);

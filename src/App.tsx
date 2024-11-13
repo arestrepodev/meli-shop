@@ -1,9 +1,9 @@
-import './styles/main.module.scss';
 import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Items from './pages/Items';
 import Item from './pages/Item';
 import Home from './pages/Home';
+import './styles/main.module.scss';
 
 const App: FC = () => {
   return (

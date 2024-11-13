@@ -55,3 +55,26 @@
   color: variables.$gray;
 }
 
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.3s; 
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(*) {
+  animation-name: fadeOut;
+}
+
+::view-transition-new(*) {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.9); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.1); } 
+  to { opacity: 1; transform: scale(1); }
+}

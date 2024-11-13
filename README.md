@@ -2,6 +2,8 @@
 
 Este proyecto es una prueba técnica que implementa una versión simplificada de la búsqueda de productos de Mercado Libre, utilizando React con Vite y el servicio de proxy server de Vite para el manejo de API.
 
+https://github.com/user-attachments/assets/557971e6-bf76-4521-92df-4dc5918aaeed
+
 ## 🛠 Tecnologías Utilizadas
 
 - React
